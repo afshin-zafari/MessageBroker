@@ -4,7 +4,7 @@
 int main(int, const char* [])
 {
 	
-	MessageStore store;
+	MessageStore store;;
 	
 	while (store.ProcessInput() == false){
 	
