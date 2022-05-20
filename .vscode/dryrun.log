@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/c/Afshin/King/king-test-new-2021/king-test'
+rm -rf bin && mkdir bin
+g++ -g -Wall -Wextra -pedantic -std=c++14 -IMessageStore/ -o bin/king_test MessageStore/main.cpp MessageStore/MessageStore.cpp
+make: Leaving directory '/mnt/c/Afshin/King/king-test-new-2021/king-test'
+ 
