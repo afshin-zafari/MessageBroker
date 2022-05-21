@@ -8,10 +8,11 @@ namespace king::test
     class Application: public ApplicationInterface
     {
         public:
-            Application (InfoInput &in, 
-                         InfoOutput &ou,
-                         Users &u,
-                         UsersMessages &um);
+            Application (InfoInputPtr &in, 
+                         InfoOutputPtr &ou,
+                         UsersPtr &u,
+                         UsersMessagesPtr &um);
+            ~Application();
             void Run() override;
         private:
         UsersPtr users;

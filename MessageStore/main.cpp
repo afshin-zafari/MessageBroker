@@ -1,9 +1,13 @@
 
 #include "MessageStore.h"
 #include "Application.h"
+#include "InfoFileOutput.h"
+
+
+
 #include <cassert>
 using namespace king::test;
-void unit_test_example()
+void unit_test_example_1()
 {
 	Users users;
 	InfoInput in;
@@ -25,14 +29,28 @@ void unit_test_example()
 	assert (messages[0].msg == s1);
 	assert (messages[1].msg == s2);
 }
+void unit_test_example_2()
+{
+	UsersPtr users = UsersPtr (new Users);
+	InfoInputPtr  in = InfoInputPtr (new InfoInput);
+	unique_ptr<InfoOutput> out = unique_ptr<InfoFileOutput>(new InfoFileOutput);
+	UsersMessagesPtr  um = UsersMessagesPtr (new UsersMessages);
+	Application app(in,out,users,um);
+	app.Run();
+}
+void unit_test_examples()
+{
+	unit_test_example_1();
+	unit_test_example_2();
+}
 int main( int  , const char *[] )
 {
-	Users users;
-	InfoInput in;
-	InfoOutput out;
-	UsersMessages um;
+	UsersPtr users = UsersPtr (new Users);
+	InfoInputPtr in = InfoInputPtr(new InfoInput);
+	unique_ptr<InfoOutput> out = unique_ptr<InfoOutput>(new InfoOutput);
+	UsersMessagesPtr  um = UsersMessagesPtr (new UsersMessages);
 
-	unit_test_example();
+	unit_test_examples();
 	Application app(in,out,users,um);
 	app.Run();
 	return 0;

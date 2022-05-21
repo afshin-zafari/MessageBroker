@@ -1,6 +1,5 @@
 #pragma once
 #include "Interfaces.h"
-#include <memory>
 namespace king::test
 {
     class UsersMessages: public UsersMessagesInterface<Message>
@@ -11,6 +10,5 @@ namespace king::test
         private:
         multimap<string,Message> user_messages;
     };
-    //typedef UsersMessages *UsersMessagesPtr;
     typedef unique_ptr<UsersMessages> UsersMessagesPtr;
 }

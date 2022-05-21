@@ -1,15 +1,15 @@
 #include "Application.h"
 namespace king::test
 {
-    Application::Application(InfoInput & in,
-                             InfoOutput & out,
-                             Users & u,
-                             UsersMessages& um)
+    Application::Application(InfoInputPtr & in,
+                             InfoOutputPtr &out,
+                             UsersPtr & u,
+                             UsersMessagesPtr & um)
         :
-        users(make_unique<Users>(u)), 
-        input(make_unique<InfoInput>(in)), 
-        output(make_unique<InfoOutput>(out)),
-        user_messages(make_unique<UsersMessages>(um))
+        users(move(u)), 
+        input(move(in)), 
+        output(move(out)),
+        user_messages(move(um))
     {
     }
     void Application::Run()
@@ -93,5 +93,12 @@ namespace king::test
                     return true;
                 }
         return false;
+    }
+    Application::~Application()
+    {
+        input.release();
+        //output->release();
+        users.release();
+        user_messages.release();
     }
 }

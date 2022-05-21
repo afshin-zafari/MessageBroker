@@ -1,7 +1,6 @@
 #pragma once
 #include "Interfaces.h"
 #include <iostream>
-#include <memory>
 namespace king::test
 {
     class InfoInput : public InfoInputInterface

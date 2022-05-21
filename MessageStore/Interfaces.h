@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ namespace king::test
     class UsersMessagesInterface
     {
         public:
+        virtual ~UsersMessagesInterface(){}
         virtual bool SendMessage(const MessageType &m)  = 0;
         virtual bool GetMessagesOfUser(const string &, vector<Message> &) const =0;
     };
@@ -30,6 +32,7 @@ namespace king::test
     class InfoInputInterface
     {
         public:
+        virtual ~InfoInputInterface(){}
         virtual bool InputUserName(const string &,string &) const = 0;
         virtual bool InputMessage(Message &) const = 0;
         virtual bool InputCommand(int &) const = 0;
@@ -40,6 +43,7 @@ namespace king::test
     class InfoOutputInterface
     {
         public:
+        virtual ~InfoOutputInterface(){}
         virtual bool ShowMessage(const Message &, bool) const = 0;
         virtual bool ShowInfo(const string &) const = 0;
         virtual bool ShowMenu(const vector<string> &) const = 0;
@@ -48,8 +52,8 @@ namespace king::test
     class ApplicationInterface
     {
         public:
+            virtual ~ApplicationInterface(){}
             virtual void Run() = 0 ;
-        protected:
 
     };
 }

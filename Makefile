@@ -19,6 +19,7 @@ sources+= MessageStore${fs}Application.cpp
 sources+= MessageStore${fs}InfoInput.cpp
 sources+= MessageStore${fs}InfoOutput.cpp
 sources+= MessageStore${fs}UserMessages.cpp
+sources+= MessageStore${fs}InfoFileOutput.cpp
 
 default: $(name)
 
