@@ -1,5 +1,6 @@
 
 #include "MessageStore.h"
+#include <set>
 
 bool MessageStore::ProcessInput() {
 	bool ret = false;
@@ -104,6 +105,8 @@ void MessageStore::terminate()
 
 bool MessageStore::Exists(std::string u)
 {
+	std::set<int> test;
+	test.contains(10);
 	for (unsigned int i = 0; i < users.size(); ++i)
 		if (users[i] == u)
 			return true;

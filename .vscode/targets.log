@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri May 20 09:40:44 2022
+# Make data base, printed on Sat May 21 12:26:56 2022
 
 # Variables
 
@@ -69,9 +69,9 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /mnt/c/Afshin/King/king-test-new-2021/king-test
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ddea45a2-21fa-4768-8bd0-e4ca507ade96.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-b206692d-a700-480d-9b72-dfd16032a327.sock
 # environment
-WSL_INTEROP = /run/WSL/145_interop
+WSL_INTEROP = /run/WSL/141_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -81,7 +81,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = afshin
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -128,12 +128,12 @@ MFLAGS = -pqrR
 VSCODE_HANDLES_SIGPIPE = true
 # default
 MAKEFILES := 
-# makefile (from 'Makefile', line 16)
-sources = MessageStore${fs}main.cpp MessageStore${fs}MessageStore.cpp
+# makefile (from 'Makefile', line 20)
+sources = MessageStore${fs}main.cpp MessageStore${fs}MessageStore.cpp MessageStore${fs}Users.cpp MessageStore${fs}Application.cpp MessageStore${fs}InfoInput.cpp MessageStore${fs}InfoOutput.cpp
 # automatic
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 3)
-options = -g -Wall -Wextra -pedantic -std=c++14
+options = -g -Wall -Wextra -pedantic -std=c++20
 # environment
 LC_ALL = C
 # environment
@@ -157,7 +157,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu-18.04
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=3/106=3%
+# Load=72/1024=7%, Rehash=0, Collisions=3/118=3%
 
 # Pattern-specific Variable Values
 
@@ -165,9 +165,9 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 
 # Directories
 
-# . (device 67, inode 16325548649276553): 7 files, no impossibilities.
+# . (device 67, inode 16325548649276553): 8 files, no impossibilities.
 
-# 7 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -175,13 +175,13 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 
 # Files
 
-king_test: MessageStore/main.cpp MessageStore/MessageStore.cpp
+king_test: MessageStore/main.cpp MessageStore/MessageStore.cpp MessageStore/Users.cpp MessageStore/Application.cpp MessageStore/InfoInput.cpp MessageStore/InfoOutput.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 21):
+#  recipe to execute (from 'Makefile', line 25):
 	$(refresh_output)
-	g++ $(options) $(include_path) -o bin${fs}$@ $^
+	g++-10 $(options) $(include_path) -o bin${fs}$@ $^
 
 # Not a target:
 all:
@@ -203,13 +203,31 @@ MessageStore/MessageStore.cpp:
 #  File has not been updated.
 
 # Not a target:
+MessageStore/Application.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 18:06:50.9439074
+#  Last modified 2022-05-21 12:26:44.6030866
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+MessageStore/Users.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 default: king_test
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+MessageStore/InfoOutput.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -220,20 +238,26 @@ default: king_test
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+MessageStore/InfoInput.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=1/22=5%
+# Load=12/1024=1%, Rehash=0, Collisions=1/30=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 174 B / avg = 10 B
-# current buf: size = 8162 B / used = 174 B / count = 16 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 286 B / avg = 13 B
+# current buf: size = 8162 B / used = 286 B / count = 21 / avg = 13 B
 
-# strcache performance: lookups = 23 / hit rate = 30%
+# strcache performance: lookups = 28 / hit rate = 25%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=1/23=4%
-# Finished Make data base on Fri May 20 09:40:44 2022
+# Load=21/8192=0%, Rehash=0, Collisions=1/28=4%
+# Finished Make data base on Sat May 21 12:26:56 2022
 
  

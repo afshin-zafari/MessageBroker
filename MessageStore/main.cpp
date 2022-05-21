@@ -1,6 +1,9 @@
 
 #include "MessageStore.h"
+#include "Users.h"
+using namespace king::test;
 
+//UsersMessagesInterface<User,Message> x;
 int main(int, const char* [])
 {
 	

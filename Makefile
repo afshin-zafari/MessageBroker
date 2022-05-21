@@ -1,6 +1,6 @@
 name=king_test
 
-options = -g -Wall -Wextra -pedantic -std=c++14
+options = -g -Wall -Wextra -pedantic -std=c++20
 
 ifeq ($(OS),Windows_NT)
 	fs=\
@@ -14,9 +14,13 @@ include_path=-IMessageStore${fs}
 
 sources+= MessageStore${fs}main.cpp
 sources+= MessageStore${fs}MessageStore.cpp
+sources+= MessageStore${fs}Users.cpp
+sources+= MessageStore${fs}Application.cpp
+sources+= MessageStore${fs}InfoInput.cpp
+sources+= MessageStore${fs}InfoOutput.cpp
 
 default: $(name)
 
 $(name): $(sources)
 	$(refresh_output)
-	g++ $(options) $(include_path) -o bin${fs}$@ $^
+	g++-10 $(options) $(include_path) -o bin${fs}$@ $^
