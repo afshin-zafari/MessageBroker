@@ -17,7 +17,7 @@ namespace king::test
     void Application::Run()
     {
         vector<string> menu;
-        menu.push_back( "Please select an option:" );
+        menu.push_back("Please select an option:" );
 	    menu.push_back("1. Create User" );
 	    menu.push_back("2. Send Message" );
 	    menu.push_back("3. Receive All Messages For User" );
@@ -68,9 +68,10 @@ namespace king::test
         input->InputUserName("Enter user name:",user);
         if (!users->Add(user))
         {
-            output->ShowInfo(string(("User '") + user + "'already exists"));
+            output->ShowInfo(string("User '") + user + "'already exists");
             return false;
         }        
+        output->ShowInfo(string("User '") + user + "' successfully added.");
         return true;
     }
 /*-------------------------------------------------------------------------------*/
