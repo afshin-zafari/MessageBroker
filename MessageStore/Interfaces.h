@@ -1,3 +1,4 @@
+#pragma once
 #include <set>
 #include <string>
 #include <vector>
@@ -12,21 +13,18 @@ namespace king::test
 		std::string to;
 		std::string msg;
 	};
-    template <typename UserType>
     class UsersInterface
     {
         public:
-        virtual bool Exists(const UserType & u) const = 0 ;
-        virtual bool Add(const UserType& u)  = 0;
+        virtual bool Exists(const string & u) const = 0 ;
+        virtual bool Add(const string & u)  = 0;
     };
-    template <typename UserType, typename MessageType>
+    template <typename MessageType>
     class UsersMessagesInterface
     {
         public:
-        virtual bool Exists(const UserType& u) const = 0 ;
-        virtual bool Add(const UserType& u, const MessageType &m)  = 0;
-        protected :
-        multimap<string,MessageType> user_messages;
+        virtual bool SendMessage(const MessageType &m)  = 0;
+        virtual bool GetMessagesOfUser(const string &, vector<Message> &) const =0;
     };
      
     class InfoInputInterface
@@ -35,6 +33,7 @@ namespace king::test
         virtual bool InputUserName(const string &,string &) const = 0;
         virtual bool InputMessage(Message &) const = 0;
         virtual bool InputCommand(int &) const = 0;
+        virtual bool WaitForKey() const = 0;
         template<typename T>
         bool Input(const string prompt, T&) const ;
     };

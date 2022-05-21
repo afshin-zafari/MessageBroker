@@ -28,4 +28,11 @@ namespace king::test
         cin >> input;
         return true;
     }
+    bool InfoInput::WaitForKey() const 
+    {
+        cout << "Type something and press Enter to continue! ...." << endl;
+        string temp;
+        cin >> temp;
+        return true;
+    }
 }

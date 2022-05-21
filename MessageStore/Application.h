@@ -1,21 +1,27 @@
 #include "Users.h"
 #include "InfoInput.h"
 #include "InfoOutput.h"
+#include "UserMessages.h"
 
 namespace king::test
 {
     class Application: public ApplicationInterface
     {
         public:
-            Application (const InfoInput& in, 
-                         const InfoOutput&ou,
-                         const Users &u);
+            Application (InfoInput &in, 
+                         InfoOutput &ou,
+                         Users &u,
+                         UsersMessages &um);
             void Run() override;
         private:
-        Users users;
-        InfoInput input;
-        InfoOutput output;
-        bool DoAddUser(const string & u);
+        UsersPtr users;
+        InfoInputPtr input;
+        InfoOutputPtr output;
+        UsersMessagesPtr user_messages;
+        bool DoAddUser();
+        bool DoShowUserMessages();
+        bool DoSendMessage();
+        bool GetValidUserName(const char *,string & user);
 
     };
 }

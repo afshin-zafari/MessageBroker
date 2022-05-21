@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 21 12:26:56 2022
+# Make data base, printed on Sat May 21 14:53:08 2022
 
 # Variables
 
@@ -128,8 +128,8 @@ MFLAGS = -pqrR
 VSCODE_HANDLES_SIGPIPE = true
 # default
 MAKEFILES := 
-# makefile (from 'Makefile', line 20)
-sources = MessageStore${fs}main.cpp MessageStore${fs}MessageStore.cpp MessageStore${fs}Users.cpp MessageStore${fs}Application.cpp MessageStore${fs}InfoInput.cpp MessageStore${fs}InfoOutput.cpp
+# makefile (from 'Makefile', line 21)
+sources = MessageStore${fs}main.cpp MessageStore${fs}MessageStore.cpp MessageStore${fs}Users.cpp MessageStore${fs}Application.cpp MessageStore${fs}InfoInput.cpp MessageStore${fs}InfoOutput.cpp MessageStore${fs}UserMessages.cpp
 # automatic
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 3)
@@ -157,7 +157,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu-18.04
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=3/118=3%
+# Load=72/1024=7%, Rehash=0, Collisions=3/121=2%
 
 # Pattern-specific Variable Values
 
@@ -175,11 +175,11 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 
 # Files
 
-king_test: MessageStore/main.cpp MessageStore/MessageStore.cpp MessageStore/Users.cpp MessageStore/Application.cpp MessageStore/InfoInput.cpp MessageStore/InfoOutput.cpp
+king_test: MessageStore/main.cpp MessageStore/MessageStore.cpp MessageStore/Users.cpp MessageStore/Application.cpp MessageStore/InfoInput.cpp MessageStore/InfoOutput.cpp MessageStore/UserMessages.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 25):
+#  recipe to execute (from 'Makefile', line 26):
 	$(refresh_output)
 	g++-10 $(options) $(include_path) -o bin${fs}$@ $^
 
@@ -211,7 +211,7 @@ MessageStore/Application.cpp:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-21 12:26:44.6030866
+#  Last modified 2022-05-21 14:52:36.7560999
 #  File has been updated.
 #  Successfully updated.
 
@@ -244,20 +244,26 @@ MessageStore/InfoInput.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+MessageStore/UserMessages.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=1/30=3%
+# Load=13/1024=1%, Rehash=0, Collisions=1/32=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 286 B / avg = 13 B
-# current buf: size = 8162 B / used = 286 B / count = 21 / avg = 13 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 316 B / avg = 14 B
+# current buf: size = 8162 B / used = 316 B / count = 22 / avg = 14 B
 
-# strcache performance: lookups = 28 / hit rate = 25%
+# strcache performance: lookups = 29 / hit rate = 24%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/28=4%
-# Finished Make data base on Sat May 21 12:26:56 2022
+# Load=22/8192=0%, Rehash=0, Collisions=1/29=3%
+# Finished Make data base on Sat May 21 14:53:08 2022
 
  

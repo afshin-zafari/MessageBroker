@@ -9,6 +9,7 @@ namespace king::test
         {
             cout << m << endl;
         }
+        cout <<  endl << endl << endl ; 
         return true;
 
     }
@@ -22,13 +23,13 @@ namespace king::test
     {
         cout << "From: " << message.from << endl; 
         if (show_recipient)
-            cout << "To: " << message.from << endl; 
-        cout << "Content: " << message.from << endl; 
+            cout << "To: " << message.to << endl; 
+        cout << "Content: " << message.msg << endl; 
         return true;
     }
     bool InfoOutput::ClearScreen() const 
     {
-        string screen('\n',80);
+        string screen(80,'\n');
         cout << screen;
         return true;
     }

@@ -1,5 +1,7 @@
+#pragma once
 #include "Interfaces.h"
 #include <iostream>
+#include <memory>
 
 namespace king::test
 {
@@ -11,4 +13,6 @@ namespace king::test
         bool ShowMenu(const vector<string> &) const override;
         bool ClearScreen() const override;
     };
+    //typedef InfoOutput *InfoOutputPtr;
+    typedef unique_ptr<InfoOutput> InfoOutputPtr;
 }
