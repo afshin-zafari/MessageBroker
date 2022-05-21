@@ -2,11 +2,10 @@
 #include "MessageStore.h"
 #include "Application.h"
 #include "InfoFileOutput.h"
-
-
-
 #include <cassert>
+
 using namespace king::test;
+/*-------------------------------------------------------------------------------*/
 void unit_test_example_1()
 {
 	Users users;
@@ -29,20 +28,26 @@ void unit_test_example_1()
 	assert (messages[0].msg == s1);
 	assert (messages[1].msg == s2);
 }
+/*-------------------------------------------------------------------------------*/
 void unit_test_example_2()
 {
 	UsersPtr users = UsersPtr (new Users);
 	InfoInputPtr  in = InfoInputPtr (new InfoInput);
-	unique_ptr<InfoOutput> out = unique_ptr<InfoFileOutput>(new InfoFileOutput);
+	unique_ptr<InfoOutput> file_out = unique_ptr<InfoFileOutput>(new InfoFileOutput);
+	//         ^                                 ^
+	//         |--- BaseClass                    |--- CustomizedClass inherited from BaseClass
 	UsersMessagesPtr  um = UsersMessagesPtr (new UsersMessages);
-	Application app(in,out,users,um);
+
+	Application app(in,file_out,users,um);
 	app.Run();
 }
+/*-------------------------------------------------------------------------------*/
 void unit_test_examples()
 {
 	unit_test_example_1();
 	unit_test_example_2();
 }
+/*-------------------------------------------------------------------------------*/
 int main( int  , const char *[] )
 {
 	UsersPtr users = UsersPtr (new Users);
@@ -55,6 +60,7 @@ int main( int  , const char *[] )
 	app.Run();
 	return 0;
 }
+/*-------------------------------------------------------------------------------*/
 int old_main(int, const char* [])
 {
 	
@@ -68,3 +74,4 @@ int old_main(int, const char* [])
 	
 	return 0;
 }
+/*-------------------------------------------------------------------------------*/

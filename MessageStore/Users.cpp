@@ -7,8 +7,8 @@ namespace king::test
     }
     bool Users::Add(const string& u)  
     {
-        users_set.insert(u);
-        return true;
+        auto [_,new_member] = users_set.insert(u);
+        return !new_member;
     }
 
 }

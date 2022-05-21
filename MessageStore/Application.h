@@ -19,6 +19,7 @@ namespace king::test
         InfoInputPtr input;
         InfoOutputPtr output;
         UsersMessagesPtr user_messages;
+        bool ProcessCommand(int command);
         bool DoAddUser();
         bool DoShowUserMessages();
         bool DoSendMessage();

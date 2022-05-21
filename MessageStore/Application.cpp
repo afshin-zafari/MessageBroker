@@ -1,6 +1,7 @@
 #include "Application.h"
 namespace king::test
 {
+/*-------------------------------------------------------------------------------*/
     Application::Application(InfoInputPtr & in,
                              InfoOutputPtr &out,
                              UsersPtr & u,
@@ -12,6 +13,7 @@ namespace king::test
         user_messages(move(um))
     {
     }
+/*-------------------------------------------------------------------------------*/
     void Application::Run()
     {
         vector<string> menu;
@@ -26,8 +28,15 @@ namespace king::test
             output->ShowMenu(menu);
             if (!input->InputCommand(command))
                 continue;
-            if ( command == 4) 
+            if(!ProcessCommand(command))
                 break;
+        }
+    }
+/*-------------------------------------------------------------------------------*/
+    bool Application::ProcessCommand(int command)
+    {
+            if (command == 4) 
+                return false;
 
             switch(command)
             {
@@ -42,20 +51,22 @@ namespace king::test
                     break;
             }
             input->WaitForKey();
-        }
+            return true;
+
     }
+/*-------------------------------------------------------------------------------*/
     bool Application::DoAddUser()
     {
         string user;
         input->InputUserName("Enter user name:",user);
-        if (users->Exists(user))
+        if (!users->Add(user))
         {
             output->ShowInfo(string(("User '") + user + "'already exists"));
             return false;
-        }
-        users->Add(user);
+        }        
         return true;
     }
+/*-------------------------------------------------------------------------------*/
     bool Application::DoShowUserMessages()
     {
         string user;
@@ -71,6 +82,7 @@ namespace king::test
         output->ShowInfo(string("===== END OF MESSAGES ====="));
         return true;
     }
+/*-------------------------------------------------------------------------------*/
     bool Application::GetValidUserName(const char * prompt, string & user)
     {
         input->InputUserName(string(prompt), user);
@@ -82,6 +94,7 @@ namespace king::test
         return true;
 
     }
+/*-------------------------------------------------------------------------------*/
     bool Application::DoSendMessage()
     {
         Message msg;
@@ -94,10 +107,11 @@ namespace king::test
                 }
         return false;
     }
+/*-------------------------------------------------------------------------------*/
     Application::~Application()
     {
         input.release();
-        //output->release();
+        output.release();
         users.release();
         user_messages.release();
     }
