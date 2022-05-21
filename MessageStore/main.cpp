@@ -31,12 +31,12 @@ void unit_test_example_1()
 /*-------------------------------------------------------------------------------*/
 void unit_test_example_2()
 {
-	UsersPtr users = UsersPtr (new Users);
-	InfoInputPtr  in = InfoInputPtr (new InfoInput);
-	unique_ptr<InfoOutput> file_out = unique_ptr<InfoFileOutput>(new InfoFileOutput);
-	//         ^                                 ^
-	//         |--- BaseClass                    |--- CustomizedClass inherited from BaseClass
-	UsersMessagesPtr  um = UsersMessagesPtr (new UsersMessages);
+	UsersPtr users = make_unique<Users>();
+	InfoInputPtr  in = make_unique<InfoInput>();
+	unique_ptr<InfoOutput> file_out = make_unique<InfoFileOutput>();
+	//         ^                                  ^
+	//         |--- BaseClass                     |--- CustomizedClass inherited from BaseClass
+	UsersMessagesPtr  um = make_unique<UsersMessages>();
 
 	Application app(in,file_out,users,um);
 	app.Run();
@@ -50,10 +50,10 @@ void unit_test_examples()
 /*-------------------------------------------------------------------------------*/
 int main( int  , const char *[] )
 {
-	UsersPtr users = UsersPtr (new Users);
-	InfoInputPtr in = InfoInputPtr(new InfoInput);
-	unique_ptr<InfoOutput> out = unique_ptr<InfoOutput>(new InfoOutput);
-	UsersMessagesPtr  um = UsersMessagesPtr (new UsersMessages);
+	UsersPtr users = make_unique<Users>();
+	InfoInputPtr  in = make_unique<InfoInput>();
+	unique_ptr<InfoOutput> out = make_unique<InfoOutput>();
+	UsersMessagesPtr  um = make_unique<UsersMessages>();
 
 	unit_test_examples();
 	Application app(in,out,users,um);

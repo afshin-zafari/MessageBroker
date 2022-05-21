@@ -23,13 +23,20 @@ namespace king::test
 	    menu.push_back("3. Receive All Messages For User" );
 	    menu.push_back("4. Quit" );
         int command;
-        while(true)
+        try
+        {        
+            while(true)
+            {
+                output->ShowMenu(menu);
+                if (!input->InputCommand(command))
+                    continue;
+                if(!ProcessCommand(command))
+                    break;
+            }
+        }
+        catch(const std::exception& e)
         {
-            output->ShowMenu(menu);
-            if (!input->InputCommand(command))
-                continue;
-            if(!ProcessCommand(command))
-                break;
+            cerr << e.what() << '\n';
         }
     }
 /*-------------------------------------------------------------------------------*/
