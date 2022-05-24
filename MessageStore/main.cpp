@@ -68,7 +68,7 @@ int old_main(int, const char* [])
 	
 	while (store.ProcessInput() == false){
 	
-	}
+	} 
 	
 	store.terminate();
 	

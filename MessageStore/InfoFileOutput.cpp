@@ -1,5 +1,6 @@
 #include "InfoFileOutput.h"
-namespace king::test
+
+namespace king::test 
 {
     bool InfoFileOutput::ShowMessage(const Message &, bool) const 
     {

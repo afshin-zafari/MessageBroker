@@ -8,22 +8,23 @@ namespace king::test
     class Application: public ApplicationInterface
     {
         public:
-            Application (InfoInputPtr &in, 
-                         InfoOutputPtr &ou,
-                         UsersPtr &u,
+            Application (InfoInputPtr     &in, 
+                         InfoOutputPtr    &ou,
+                         UsersPtr         &u,
                          UsersMessagesPtr &um);
             ~Application();
             void Run() override;
         private:
-        UsersPtr users;
-        InfoInputPtr input;
-        InfoOutputPtr output;
+        UsersPtr         users;
+        InfoInputPtr     input;
+        InfoOutputPtr    output;
         UsersMessagesPtr user_messages;
-        bool ProcessCommand(int command);
-        bool DoAddUser();
+
+        bool ProcessCommand    (int command);
+        bool DoAddUser         ();
         bool DoShowUserMessages();
-        bool DoSendMessage();
-        bool GetValidUserName(const char *,string & user);
+        bool DoSendMessage     ();
+        bool GetValidUserName  (const char *prompt,string & user);
 
     };
 }

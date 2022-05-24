@@ -2,34 +2,39 @@
 namespace king::test
 {
 /*-------------------------------------------------------------------------------*/
-    Application::Application(InfoInputPtr & in,
-                             InfoOutputPtr &out,
-                             UsersPtr & u,
-                             UsersMessagesPtr & um)
+    Application::Application(InfoInputPtr     &Input,
+                             InfoOutputPtr    &Output,
+                             UsersPtr         &Users,
+                             UsersMessagesPtr &UserMessages)
         :
-        users(move(u)), 
-        input(move(in)), 
-        output(move(out)),
-        user_messages(move(um))
+        users        (move(Users)       ), 
+        input        (move(Input)       ), 
+        output       (move(Output)      ),
+        user_messages(move(UserMessages))
     {
     }
 /*-------------------------------------------------------------------------------*/
     void Application::Run()
     {
+        int command;
         vector<string> menu;
+
         menu.push_back("Please select an option:" );
 	    menu.push_back("1. Create User" );
 	    menu.push_back("2. Send Message" );
 	    menu.push_back("3. Receive All Messages For User" );
 	    menu.push_back("4. Quit" );
-        int command;
-        try
+
+        try 
         {        
             while(true)
             {
                 output->ShowMenu(menu);
                 if (!input->InputCommand(command))
+                {
+                    output->ShowInfo(string("Please enter numbers between 1 to 4 for the options."));
                     continue;
+                }
                 if(!ProcessCommand(command))
                     break;
             }
@@ -56,15 +61,19 @@ namespace king::test
                 case 3:
                     DoShowUserMessages();
                     break;
+                default:
+                    break;
             }
-            input->WaitForKey();
-            return true;
 
+            input->WaitForKey();
+
+            return true;
     }
 /*-------------------------------------------------------------------------------*/
-    bool Application::DoAddUser()
+    bool Application::DoAddUser() 
     {
         string user;
+
         input->InputUserName("Enter user name:",user);
         if (!users->Add(user))
         {
@@ -78,16 +87,25 @@ namespace king::test
     bool Application::DoShowUserMessages()
     {
         string user;
+
         if ( !GetValidUserName("Enter name of user to receive all messages for:", user))
         {   
             return false;
         }
+
         vector<Message> messages;
         user_messages->GetMessagesOfUser(user, messages);
-        output->ShowInfo(string("===== BEGIN MESSAGES ====="));
-        for(const auto m: messages)
-            output->ShowMessage(m);
-        output->ShowInfo(string("===== END OF MESSAGES ====="));
+        if ( messages.size() > 0 )
+        {
+            output->ShowInfo(string("===== BEGIN MESSAGES ====="));
+            for(const auto m: messages)
+                output->ShowMessage(m);
+            output->ShowInfo(string("===== END OF MESSAGES ====="));
+        }
+        else
+        {
+            output->ShowInfo(string("No message is sent to user'" ) + user + "' .");
+        }
         return true;
     }
 /*-------------------------------------------------------------------------------*/
@@ -100,27 +118,30 @@ namespace king::test
             return false;
         }
         return true;
-
     }
 /*-------------------------------------------------------------------------------*/
     bool Application::DoSendMessage()
     {
-        Message msg;
-        if(GetValidUserName("From user:",msg.from))
-            if(GetValidUserName("To user: ",msg.to))
-                if ( input->Input(string("Content: "), msg.msg))
+        Message message;
+        if(GetValidUserName("From user:",message.from))
+        {
+            if(GetValidUserName("To user: ",message.to))
+            {
+                if (input->Input(string("Content: "), message.msg))
                 {
-                    user_messages->SendMessage(msg);
+                    user_messages->SendMessage(message);
                     return true;
                 }
+            }
+        }
         return false;
     }
 /*-------------------------------------------------------------------------------*/
     Application::~Application()
     {
-        input.release();
-        output.release();
-        users.release();
+        input        .release();
+        output       .release();
+        users        .release();
         user_messages.release();
     }
 }

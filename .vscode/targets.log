@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 21 19:24:08 2022
+# Make data base, printed on Tue May 24 20:20:26 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ make: *** No rule to make target 'all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = ELECTRON_RUN_AS_NODE/w:
+WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # environment
@@ -55,7 +55,7 @@ refresh_output = rm -rf bin && mkdir bin
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu18.04onWindows_1804.2020.827.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Microsoft/jdk-11.0.12.7-hotspot/bin:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files (x86)/Skype/Phone/:/mnt/c/Program Files (x86)/GtkSharp/2.12/bin:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/afshin.zafari/AppData/Local/Programs/Python/Python38/Scripts:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Users/afshin.zafari/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/afshin.zafari/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/afshin.zafari/.dotnet/tools:/mnt/c/Users/afshin.zafari/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/afshin.zafari/AppData/Local/Programs/Fiddler:/mnt/c/Users/afshin.zafari/AppData/Roaming/npm:/mnt/c/Users/afshin.zafari/.dotnet/tools:/snap/bin
+PATH = /home/afshin/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Microsoft/jdk-11.0.12.7-hotspot/bin:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files (x86)/Skype/Phone/:/mnt/c/Program Files (x86)/GtkSharp/2.12/bin:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/afshin.zafari/AppData/Local/Programs/Python/Python38/Scripts:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Users/afshin.zafari/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/afshin.zafari/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/afshin.zafari/.dotnet/tools:/mnt/c/Users/afshin.zafari/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/afshin.zafari/AppData/Local/Programs/Fiddler:/mnt/c/Users/afshin.zafari/AppData/Roaming/npm:/mnt/c/Users/afshin.zafari/.dotnet/tools:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # default
@@ -69,9 +69,11 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /mnt/c/Afshin/King/king-test-new-2021/king-test
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-b206692d-a700-480d-9b72-dfd16032a327.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-08e398c6-8a9f-44d1-bf6f-4d3a9947df94.sock
 # environment
 WSL_INTEROP = /run/WSL/141_interop
+# environment
+WT_SESSION = cc9953eb-b5ef-4eaa-b792-9822c4c34a15
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -126,6 +128,8 @@ MFLAGS = -pqrR
 +F = $(notdir $+)
 # environment
 VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}
 # default
 MAKEFILES := 
 # makefile (from 'Makefile', line 22)
@@ -157,7 +161,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu-18.04
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=3/124=2%
+# Load=74/1024=7%, Rehash=0, Collisions=3/126=2%
 
 # Pattern-specific Variable Values
 
@@ -165,7 +169,7 @@ WSL_DISTRO_NAME = Ubuntu-18.04
 
 # Directories
 
-# . (device 67, inode 16325548649276553): 8 files, no impossibilities.
+# . (device 46, inode 16325548649276553): 8 files, no impossibilities.
 
 # 8 files, no impossibilities in 1 directories.
 
@@ -270,6 +274,6 @@ MessageStore/UserMessages.cpp:
 # strcache performance: lookups = 30 / hit rate = 23%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=1/30=3%
-# Finished Make data base on Sat May 21 19:24:08 2022
+# Finished Make data base on Tue May 24 20:20:26 2022
 
  
