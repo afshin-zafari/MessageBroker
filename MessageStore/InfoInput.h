@@ -8,6 +8,7 @@ namespace king::test
     class InfoInput : public InfoInputInterface
     {
         public:
+        
         bool InputUserName(const string &, string &) const override;
         bool InputMessage (Message &)                const override;
         bool InputCommand (int &)                    const override;

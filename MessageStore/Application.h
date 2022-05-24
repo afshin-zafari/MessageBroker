@@ -8,13 +8,16 @@ namespace king::test
     class Application: public ApplicationInterface
     {
         public:
-            Application (InfoInputPtr     &in, 
-                         InfoOutputPtr    &ou,
-                         UsersPtr         &u,
-                         UsersMessagesPtr &um);
+
+            Application (InfoInputPtr     &Input, 
+                         InfoOutputPtr    &Output,
+                         UsersPtr         &Users,
+                         UsersMessagesPtr &UsersMessages);
             ~Application();
             void Run() override;
+
         private:
+        
         UsersPtr         users;
         InfoInputPtr     input;
         InfoOutputPtr    output;
@@ -25,6 +28,5 @@ namespace king::test
         bool DoShowUserMessages();
         bool DoSendMessage     ();
         bool GetValidUserName  (const char *prompt,string & user);
-
     };
 }
