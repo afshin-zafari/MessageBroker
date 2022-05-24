@@ -51,6 +51,7 @@ namespace king::test
     {
         public:
         virtual ~InfoOutputInterface(){}
+
         virtual bool ShowMessage(const Message &, bool)  const = 0;
         virtual bool ShowInfo   (const string &)         const = 0;
         virtual bool ShowMenu   (const vector<string> &) const = 0;
@@ -61,6 +62,7 @@ namespace king::test
     {
         public:
             virtual ~ApplicationInterface(){}
+            
             virtual void Run() = 0 ;
 
     };
