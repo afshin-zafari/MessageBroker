@@ -20,7 +20,7 @@ namespace king::test
     class UsersInterface
     {
         public:
-        virtual bool Exists(const string & u) const = 0 ;
+        virtual bool Exists(const string & u) const = 0;
         virtual bool Add   (const string & u)       = 0;
     };
 /*-------------------------------------------------------------------------------*/

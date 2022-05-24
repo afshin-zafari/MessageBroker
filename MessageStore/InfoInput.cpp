@@ -28,8 +28,8 @@ namespace king::test
     template<typename T>
     bool InfoInput::Input(const string& prompt, T& input) const 
     {
-        cout << prompt;
-        cin  >> input ;
+        cout << prompt ;
+        cin  >> input  ;
         return true;
     }
 /*-------------------------------------------------------------------------------*/

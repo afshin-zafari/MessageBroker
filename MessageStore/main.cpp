@@ -5,38 +5,44 @@
 #include <cassert>
 
 using namespace king::test;
+
 /*-------------------------------------------------------------------------------*/
-void unit_test_example_1()
+void unit_test_example_show_testability()
 {
-	Users users;
-	InfoInput in;
-	InfoOutput out;
+	Users         users;
+	InfoInput     in;
+	InfoOutput    out;
 	UsersMessages um;
+
 	users.Add("A1");
 	users.Add("B1");
+
 	Message m1,m2;
 	m1.from = m2.from = "A1";
-	m1.to = m2.to = "B1";
+	m1.to   = m2.to   = "B1";
 
 	string  s1("Hello"), s2("Hey");
-	m1.msg = s1;
+	m1.msg = s1;         
 	m2.msg = s2;
+
 	um.SendMessage(m1);
 	um.SendMessage(m2);
+
 	vector<Message> messages;
 	um.GetMessagesOfUser("B1", messages);
+
 	assert (messages[0].msg == s1);
 	assert (messages[1].msg == s2);
 }
 /*-------------------------------------------------------------------------------*/
-void unit_test_example_2()
+void unit_test_example_custom_objects()
 {
-	UsersPtr users = make_unique<Users>();
-	InfoInputPtr  in = make_unique<InfoInput>();
+	UsersPtr               users    = make_unique<Users>         ();
+	InfoInputPtr           in       = make_unique<InfoInput>     ();
+	UsersMessagesPtr       um       = make_unique<UsersMessages> ();
 	unique_ptr<InfoOutput> file_out = make_unique<InfoFileOutput>();
 	//         ^                                  ^
 	//         |--- BaseClass                     |--- CustomizedClass inherited from BaseClass
-	UsersMessagesPtr  um = make_unique<UsersMessages>();
 
 	Application app(in,file_out,users,um);
 	app.Run();
@@ -44,20 +50,22 @@ void unit_test_example_2()
 /*-------------------------------------------------------------------------------*/
 void unit_test_examples()
 {
-	unit_test_example_1();
-	unit_test_example_2();
+	unit_test_example_show_testability();
+	unit_test_example_custom_objects  ();
 }
 /*-------------------------------------------------------------------------------*/
 int main( int  , const char *[] )
 {
-	UsersPtr users = make_unique<Users>();
-	InfoInputPtr  in = make_unique<InfoInput>();
-	unique_ptr<InfoOutput> out = make_unique<InfoOutput>();
-	UsersMessagesPtr  um = make_unique<UsersMessages>();
+	UsersPtr               users = make_unique<Users>        ();
+	InfoInputPtr           in    = make_unique<InfoInput>    ();
+	unique_ptr<InfoOutput> out   = make_unique<InfoOutput>   ();
+	UsersMessagesPtr       um    = make_unique<UsersMessages>();
 
 	unit_test_examples();
+
 	Application app(in,out,users,um);
 	app.Run();
+
 	return 0;
 }
 /*-------------------------------------------------------------------------------*/

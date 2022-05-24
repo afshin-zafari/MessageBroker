@@ -13,14 +13,12 @@ namespace king::test
         }
         cout <<  endl << endl << endl ; 
         return true;
-
     }
 /*-------------------------------------------------------------------------------*/
     bool InfoOutput::ShowInfo(const string &info) const 
     {
         cout << info << endl;
         return true; 
-
     }
 /*-------------------------------------------------------------------------------*/
     bool InfoOutput::ShowMessage(const Message &message, bool show_recipient) const 
